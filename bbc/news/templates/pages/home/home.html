@@ -9,21 +9,23 @@
         <div class="container">
             <div class="row">
                 {% for category in categoryData %}
-                <div class="col-md-6 tn-left">
-                    <div class="row tn-slider">
-                        {% for news in category.news_set.all %}
-                        <div class="col-md-6">
-                            <div class="tn-img">
-                                <img src="{{ news.image.url }}"/>
-                                <div class="tn-title">
-                                    <a href="{% url 'news-details' news.slug %}">{{ news.title }}</a>
+                    <div class="col-md-6 tn-left">
+                        <div class="row tn-slider">
+                            {% for news in category.news_set.all %}
+                                <div class="col-md-6">
+                                    <div class="tn-img">
+                                        {% if news.image %}
+                                        <img src="{{ news.image.url }}"/>
+                                        <div class="tn-title">
+                                            <a href="{% url 'news-details' news.slug %}">{{ news.title }}</a>
+                                        </div>
+                                        {% endif %}
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
                             {% endfor %}
 
+                        </div>
                     </div>
-                </div>
                 {% endfor %}
 
             </div>
@@ -36,22 +38,24 @@
         <div class="container">
             <div class="row">
                 {% for category in categoryData %}
-                <div class="col-md-6">
-                    <h2>{{ category.cat_name }}</h2>
-                    <div class="row cn-slider">
-                        {% for news in category.news_set.all %}
-                        <div class="col-md-6">
-                            <div class="cn-img">
-                                <img src="{{ news.image.url }}"/>
-                                <div class="cn-title">
-                                    <a href="{% url 'news-details' news.slug %}">{{ news.title }}</a>
+                    <div class="col-md-6">
+                        <h2>{{ category.cat_name }}</h2>
+                        <div class="row cn-slider">
+                            {% for news in category.news_set.all %}
+                                <div class="col-md-6">
+                                    <div class="cn-img">
+                                        {% if news.image %}
+                                            <img src="{{ news.image.url }}"/>
+                                        {% endif %}
+                                        <div class="cn-title">
+                                            <a href="{% url 'news-details' news.slug %}">{{ news.title }}</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
                             {% endfor %}
 
+                        </div>
                     </div>
-                </div>
                 {% endfor %}
 
             </div>
@@ -82,7 +86,7 @@
                         <div id="featured" class="container tab-pane active">
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-1.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -90,7 +94,7 @@
                             </div>
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-2.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -98,7 +102,7 @@
                             </div>
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-3.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -108,7 +112,7 @@
                         <div id="popular" class="container tab-pane fade">
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-4.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -116,7 +120,7 @@
                             </div>
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-5.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -124,7 +128,7 @@
                             </div>
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-1.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -134,7 +138,7 @@
                         <div id="latest" class="container tab-pane fade">
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-2.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -142,7 +146,7 @@
                             </div>
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-3.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -150,7 +154,7 @@
                             </div>
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-4.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -177,7 +181,7 @@
                         <div id="m-viewed" class="container tab-pane active">
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-5.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -185,15 +189,14 @@
                             </div>
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-4.jpg"/>
-                                </div>
+                                    <img src="
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
                                 </div>
                             </div>
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-3.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -203,7 +206,7 @@
                         <div id="m-read" class="container tab-pane fade">
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-2.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -211,7 +214,7 @@
                             </div>
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-1.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -219,7 +222,7 @@
                             </div>
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-3.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -229,7 +232,7 @@
                         <div id="m-recent" class="container tab-pane fade">
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-4.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -237,7 +240,7 @@
                             </div>
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-5.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -245,7 +248,7 @@
                             </div>
                             <div class="tn-news">
                                 <div class="tn-img">
-                                    <img src="img/news-350x223-1.jpg"/>
+                                    <img src=""/>
                                 </div>
                                 <div class="tn-title">
                                     <a href="">Lorem ipsum dolor sit amet</a>
@@ -267,7 +270,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="mn-img">
-                                <img src="img/news-350x223-1.jpg"/>
+                                <img src=""/>
                                 <div class="mn-title">
                                     <a href="">Lorem ipsum dolor sit</a>
                                 </div>
@@ -275,7 +278,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mn-img">
-                                <img src="img/news-350x223-2.jpg"/>
+                                <img src=""/>
                                 <div class="mn-title">
                                     <a href="">Lorem ipsum dolor sit</a>
                                 </div>
@@ -283,7 +286,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mn-img">
-                                <img src="img/news-350x223-3.jpg"/>
+                                <img src=""/>
                                 <div class="mn-title">
                                     <a href="">Lorem ipsum dolor sit</a>
                                 </div>
@@ -291,7 +294,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mn-img">
-                                <img src="img/news-350x223-4.jpg"/>
+                                <img src=""/>
                                 <div class="mn-title">
                                     <a href="">Lorem ipsum dolor sit</a>
                                 </div>
@@ -299,7 +302,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mn-img">
-                                <img src="img/news-350x223-5.jpg"/>
+                                <img src=""/>
                                 <div class="mn-title">
                                     <a href="">Lorem ipsum dolor sit</a>
                                 </div>
@@ -307,7 +310,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mn-img">
-                                <img src="img/news-350x223-1.jpg"/>
+                                <img src=""/>
                                 <div class="mn-title">
                                     <a href="">Lorem ipsum dolor sit</a>
                                 </div>
@@ -315,7 +318,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mn-img">
-                                <img src="img/news-350x223-2.jpg"/>
+                                <img src=""/>
                                 <div class="mn-title">
                                     <a href="">Lorem ipsum dolor sit</a>
                                 </div>
@@ -323,7 +326,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mn-img">
-                                <img src="img/news-350x223-3.jpg"/>
+                                <img src=""/>
                                 <div class="mn-title">
                                     <a href="">Lorem ipsum dolor sit</a>
                                 </div>
@@ -331,7 +334,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="mn-img">
-                                <img src="img/news-350x223-4.jpg"/>
+                                <img src=""/>
                                 <div class="mn-title">
                                     <a href="">Lorem ipsum dolor sit</a>
                                 </div>

@@ -3,6 +3,13 @@ from .models import *
 from django.db.models import Q
 from django.core.mail import send_mail
 from django.contrib import messages
+from rest_framework import serializers, viewsets
+from .serializer import NewsSerializer
+
+
+class NewsApiViews(viewsets.ModelViewSet):
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer
 
 
 # Create your views here.

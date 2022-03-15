@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'news.apps.NewsConfig',
     'ckeditor',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
